@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutRespostas 3D - Busca Integrada DuckDuckGo</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Fundo Esportivo 3D -->
+    <div class="fundo-3d">
+        <div class="esfera esfera-verde"></div>
+        <div class="esfera esfera-amarela"></div>
+        <div class="esfera esfera-azul"></div>
+    </div>
+
+    <!-- Modal Principal 3D -->
+    <main class="modal-container">
+        <header class="modal-header">
+            <div class="logo-badge">
+                <i data-lucide="trophy" class="icon-gold"></i>
+            </div>
+            <h1>Fut<span class="highlight-yellow">Respostas</span> <span class="badge-3d">DuckDuckGo</span></h1>
+            <p>Faça sua pergunta sobre futebol. As respostas são buscadas ao vivo na web e exibidas diretamente aqui.</p>
+        </header>
+
+        <!-- Form de Busca Dinâmica -->
+        <section class="secao-busca">
+            <form id="form-pergunta" class="campo-input-3d">
+                <input type="text" id="input-pergunta" placeholder="Ex: Quem ganhou o último jogo do Flamengo?..." required autocomplete="off">
+                <button type="submit" class="btn-3d btn-verde" id="btn-pesquisar">
+                    <i data-lucide="search"></i>
+                    <span>Buscar</span>
+                </button>
+            </form>
+        </section>
+
+        <!-- Indicador de Carregamento -->
+        <div id="loader" class="loader-container oculto">
+            <div class="spinner"></div>
+            <p>Buscando resultados no DuckDuckGo...</p>
+        </div>
+
+        <!-- Modal de Resultado Integrado -->
+        <section class="caixa-resultados oculto" id="caixa-resultados">
+            <div class="resultado-card-3d">
+                <div class="resultado-header">
+                    <i data-lucide="globe" class="icon-azul"></i>
+                    <h2>Resposta Encontrada</h2>
+                </div>
+                
+                <p class="texto-resultado" id="texto-resultado"></p>
+
+                <!-- Fonte e Link Extraído -->
+                <div class="noticia-container oculto" id="noticia-container">
+                    <div class="fonte-badge">
+                        <i data-lucide="newspaper"></i>
+                        <span id="titulo-noticia">Fonte da Notícia</span>
+                    </div>
+                </div>
+
+                <!-- Painel de Controle: Voz e Copiar -->
+                <div class="painel-acoes">
+                    <button id="btn-ouvir" class="btn-3d btn-amarelo">
+                        <i data-lucide="volume-2" id="icon-voz"></i>
+                        <span id="label-voz">Ouvir com I.A</span>
+                    </button>
+                    <button id="btn-parar-voz" class="btn-3d btn-parar oculto">
+                        <i data-lucide="square"></i>
+                        <span>Parar</span>
+                    </button>
+                    <button id="btn-copiar" class="btn-3d btn-azul">
+                        <i data-lucide="copy" id="icon-copiar"></i>
+                        <span id="label-copiar">Copiar</span>
+                    </button>
+                </div>
+
+                <button id="btn-nova-busca" class="btn-3d btn-secundario">
+                    <i data-lucide="rotate-ccw"></i>
+                    <span>Fazer Outra Pergunta</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

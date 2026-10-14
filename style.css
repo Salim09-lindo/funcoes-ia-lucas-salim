@@ -1,0 +1,302 @@
+/* Reset e Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #000000; /* Fundo totalmente preto */
+    color: #f1f5f9;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 20px;
+    perspective: 1000px;
+}
+
+/* Fundo Ambientado 3D (Verde, Amarelo e Azul) */
+.fundo-3d {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    filter: blur(90px);
+    opacity: 0.35;
+}
+
+.esfera {
+    position: absolute;
+    border-radius: 50%;
+    animation: flutuar 12s infinite alternate ease-in-out;
+}
+
+.esfera-verde {
+    width: 350px;
+    height: 350px;
+    background: #00c853;
+    top: -50px;
+    left: -50px;
+}
+
+.esfera-amarela {
+    width: 300px;
+    height: 300px;
+    background: #ffd600;
+    bottom: -50px;
+    right: -50px;
+    animation-delay: -4s;
+}
+
+.esfera-azul {
+    width: 280px;
+    height: 280px;
+    background: #29b6f6;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -8s;
+}
+
+@keyframes flutuar {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    100% { transform: translate(60px, 80px) scale(1.15) rotate(15deg); }
+}
+
+/* Container Modal 3D */
+.modal-container {
+    background: rgba(10, 10, 12, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 32px;
+    width: 100%;
+    max-width: 650px;
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.9),
+        0 0 30px rgba(0, 200, 83, 0.15);
+    transform-style: preserve-3d;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.logo-badge {
+    display: inline-flex;
+    padding: 12px;
+    background: #111827;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.8);
+    margin-bottom: 12px;
+}
+
+.icon-gold { color: #ffd600; }
+.icon-azul { color: #29b6f6; }
+
+.modal-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.highlight-yellow { color: #ffd600; }
+
+.badge-3d {
+    font-size: 0.75rem;
+    background: linear-gradient(135deg, #00c853, #009624);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 12px;
+    vertical-align: middle;
+    box-shadow: 0 4px 8px rgba(0, 200, 83, 0.4);
+}
+
+.modal-header p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+/* Entrada de Pesquisa */
+.secao-busca {
+    margin-bottom: 10px;
+}
+
+.campo-input-3d {
+    display: flex;
+    gap: 10px;
+}
+
+.campo-input-3d input {
+    flex: 1;
+    background: #090a0f;
+    border: 2px solid #1e293b;
+    border-radius: 14px;
+    padding: 14px 18px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
+}
+
+.campo-input-3d input:focus {
+    border-color: #00c853;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 200, 83, 0.3);
+}
+
+/* Botões Estilo 3D */
+.btn-3d {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    border-radius: 14px;
+    padding: 14px 20px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    transform: translateY(0);
+}
+
+.btn-3d:active {
+    transform: translateY(4px) !important;
+    box-shadow: none !important;
+}
+
+.btn-verde {
+    background: linear-gradient(180deg, #00e676 0%, #00c853 100%);
+    color: #052e16;
+    box-shadow: 0 6px 0 #008e3a;
+}
+
+.btn-verde:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 #008e3a, 0 8px 20px rgba(0, 200, 83, 0.3);
+}
+
+.btn-amarelo {
+    flex: 1;
+    background: linear-gradient(180deg, #ffea00 0%, #ffd600 100%);
+    color: #3f2c00;
+    box-shadow: 0 6px 0 #b79500;
+}
+
+.btn-amarelo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 #b79500, 0 8px 20px rgba(255, 214, 0, 0.3);
+}
+
+.btn-azul {
+    flex: 1;
+    background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+    color: #032b45;
+    box-shadow: 0 6px 0 #0369a1;
+}
+
+.btn-azul:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 #0369a1, 0 8px 20px rgba(2, 132, 199, 0.3);
+}
+
+.btn-parar {
+    flex: 1;
+    background: linear-gradient(180deg, #ff5252 0%, #ff1744 100%);
+    color: #fff;
+    box-shadow: 0 6px 0 #b2102f;
+}
+
+.btn-secundario {
+    background: #1e293b;
+    color: #cbd5e1;
+    box-shadow: 0 6px 0 #0f172a;
+    width: 100%;
+}
+
+.btn-secundario:hover {
+    background: #334155;
+    color: #fff;
+}
+
+/* Spinner e Status */
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    color: #ffd600;
+}
+
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 4px solid rgba(255, 214, 0, 0.2);
+    border-top: 4px solid #ffd600;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Card de Resultados */
+.resultado-card-3d {
+    background: #090a0f;
+    border-radius: 18px;
+    padding: 24px;
+    border: 1px solid rgba(41, 182, 246, 0.3);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.resultado-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.texto-resultado {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    white-space: pre-line;
+}
+
+/* Badge de Fonte */
+.fonte-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 200, 83, 0.1);
+    border: 1px solid rgba(0, 200, 83, 0.3);
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: #00c853;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.painel-acoes {
+    display: flex;
+    gap: 10px;
+}
+
+.oculto {
+    display: none !important;
+}
